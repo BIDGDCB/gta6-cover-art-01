@@ -1,0 +1,64 @@
+@font-face {
+  font-family: 'Anton';
+  src: url('./fonts/Anton-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('./fonts/Pacifico-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #12081f; color: #f5eefc; font: 15px/1.45 system-ui, -apple-system, sans-serif; }
+.app { display: flex; gap: 28px; align-items: flex-start; justify-content: center; min-height: 100vh; padding: 24px; }
+.controls { width: 320px; flex: none; display: flex; flex-direction: column; gap: 18px; padding: 20px; border: 1px solid #3d2354; border-radius: 14px; background: linear-gradient(160deg, #1e0f33, #160a24); box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45); }
+.controls h1 { margin: 0; font-family: 'Anton', system-ui, sans-serif; font-size: 34px; letter-spacing: 1px; line-height: 1; background: linear-gradient(90deg, #ff5e8a, #ffb347, #19e3d6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.controls header p { margin: 8px 0 0; color: #c9b8dd; font-size: 13.5px; }
+.group { display: flex; flex-direction: column; gap: 10px; padding-top: 14px; border-top: 1px solid #33204a; }
+.group:first-of-type { border-top: 0; padding-top: 0; }
+.label { font-weight: 700; font-size: 13px; letter-spacing: 0.4px; text-transform: uppercase; color: #ffd166; }
+.field { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 13.5px; }
+.field input[type=text] { font: inherit; padding: 9px 10px; border: 1px solid #4a2d68; border-radius: 8px; background: #0f0618; color: #fff; }
+.field input[type=text]:focus { outline: 2px solid #ff2e88; outline-offset: 1px; }
+input[type=file] { font: inherit; color: #c9b8dd; }
+input[type=range] { width: 100%; accent-color: #ff2e88; }
+.check { display: flex; gap: 8px; align-items: center; font-size: 13.5px; color: #d9cbe8; }
+.check input { accent-color: #ff2e88; }
+.hint { margin: 0; color: #9d8ab5; font-size: 12.5px; }
+.row { display: flex; gap: 8px; }
+.opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.opt { font: inherit; font-size: 13px; font-weight: 600; padding: 7px 10px; border: 1px solid #4a2d68; border-radius: 999px; background: #1d0f31; color: #e6dbf5; cursor: pointer; }
+.opt:hover { border-color: #ff2e88; }
+.opt.on { background: linear-gradient(90deg, #ff2e88, #ff7a3d); border-color: transparent; color: #fff; }
+button { font: inherit; font-weight: 700; padding: 10px 14px; border: 0; border-radius: 8px; cursor: pointer; }
+button.primary { background: linear-gradient(90deg, #ff2e88, #ff7a3d); color: #fff; font-size: 16px; }
+button.primary:hover { filter: brightness(1.1); }
+button.ghost { background: #241640; color: #e6dbf5; border: 1px solid #4a2d68; padding: 8px 10px; font-size: 13px; }
+button.ghost:hover { border-color: #19e3d6; }
+.actions { display: flex; flex-direction: column; gap: 8px; }
+.actions button { width: 100%; }
+#export-all { background: #241640; color: #e6dbf5; border: 1px solid #4a2d68; }
+#status { margin: 0; min-height: 20px; color: #7df9ff; font-size: 13px; }
+.strip { display: flex; flex-wrap: wrap; gap: 8px; }
+.strip:empty::after { content: 'No photos yet — two samples load automatically.'; color: #9d8ab5; font-size: 12.5px; }
+.thumb { padding: 0; border: 2px solid transparent; border-radius: 8px; overflow: hidden; background: none; cursor: pointer; }
+.thumb:hover { border-color: #19e3d6; }
+.thumb canvas { display: block; width: 64px; height: 64px; object-fit: cover; }
+.stage { flex: 1; display: flex; align-items: center; justify-content: center; min-width: 0; position: sticky; top: 24px; }
+#cover { max-width: 100%; max-height: calc(100vh - 48px); box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6); border-radius: 4px; cursor: grab; touch-action: none; }
+#cover:active { cursor: grabbing; }
+body.shot-cover { background: #160a24; }
+body.shot-cover .controls { display: none; }
+body.shot-cover .app { padding: 0; }
+body.shot-cover .stage { position: static; }
+body.shot-cover #cover { max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; box-shadow: none; border-radius: 0; object-fit: contain; background: #160a24; }
+@media (max-width: 900px) {
+  .app { flex-direction: column; }
+  .controls { width: 100%; }
+  .stage { position: static; width: 100%; }
+}
